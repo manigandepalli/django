@@ -4,8 +4,12 @@ from rest_framework.views import APIView
 
 from .models import Person
 from .serializers import PersonSerializer
+from rest_framework import viewsets
 
 
+class PeopleViewset(viewsets.ModelViewSet):
+    serializer_class = PersonSerializer
+    queryset = Person.objects.all()
 
 
 

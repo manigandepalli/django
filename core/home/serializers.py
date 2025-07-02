@@ -6,15 +6,19 @@ from .models import Person, Color
 class ColorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Color
-        fields = ["color_name"]
+        fields = ["id"]
 
 
 class PersonSerializer(serializers.ModelSerializer):
-    #color = ColorSerializer() disabled just for testing
+    color = ColorSerializer(read_only=True)
+    # color_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=Color.objects.all(),
+    #     source='color'
+    # )
 
     class Meta:
         model = Person
-        fields = '__all__'
-        #depth = 1
+        fields = ['id', 'name', 'age', 'color']
+
 
 
