@@ -10,7 +10,7 @@ class ColorSerializer(serializers.ModelSerializer):
 
 
 class PersonSerializer(serializers.ModelSerializer):
-    color = ColorSerializer()
+    #color = ColorSerializer() disabled just for testing
 
     class Meta:
         model = Person
